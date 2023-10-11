@@ -17,7 +17,7 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: paleturquoise;
+            background-color: papayawhip;
         }
         h1 {
             color: Red;
@@ -27,9 +27,14 @@
             margin-bottom: 20px;
             color: cornflowerblue;
         }
-        #locations, #penalty {
+        #locations{
             font-size: 16px;
-            color: burlywood;
+            color: fuchsia;
+        }
+        
+        #penalty {
+            font-size: 16px;
+            color: navy;
         }
         #help {
             font-size: 14px;
@@ -52,124 +57,88 @@
             background-image: url('./hidden\ treasure.jpg');
             background-size: cover;
         }
+        .treasure {
+            background-image: url('./treasure.jpg'); 
+        }
+
+        .trap {
+            background-image: url('./Trap.jpg');
+        }
+
+        .pirate-related {
+            background-image: url('./No\ Treasure.png'); 
+        }
         
+        .location {
+            width: 68px;
+            height: 65px;
+            border: 1px solid black;
+            text-align: center;
+            background-image: url('./hidden\ treasure.jpg');
+            background-size: cover;
+        }
+        .treasure {
+            background-image: url('./treasure.jpg'); 
+        }
+
+        .trap {
+            background-image: url('./Trap.jpg');
+        }
+
+        .pirate-related {
+            background-image: url('./No\ Treasure.png'); 
+        }
           </style>
 </head>
-<body>
-    <h1>Find the Treasure by Sravya
-
-    </h1>
-    
-    <div id="instructions">
-        <p>Click on the locations to search for treasure, beware the traps.</p>
-    </div>
-    <div id="locations">Number of locations checked is zero.</div>
-    <div id="penalty">Penalty is zero.</div>
-    <div id="help">
-        <p>Click for help.</p>
-        
-    </div>
-
-    <div id="helpReport">
-        <p>helpReport</p>
-    </div>
-    <div class="grid" text-align="center">
-        <div class="location"> <img id="image0" src="./hidden treasure.jpg" height="102px" width="100px" alt="location" onclick="check(0)"> </div>
-        <div class="location"> <img id="image1" src="./hidden treasure.jpg" height="102px" width="98px" alt="location" onclick="check(1)"></div>
-        <div class="location"><img id="image2" src="./hidden treasure.jpg" height="102px" width="98px" alt="location" onclick="check(2)"></div>
-        <div class="location"><img id="image3" src="./hidden treasure.jpg" height="102px" width="98px" alt="location" onclick="check(3)"></div>
-        <div class="location"><img id="image4" src="./hidden treasure.jpg" height="102px" width="98px" alt="location" onclick="check(4)"></div>
 
 
-        <div class="location"> <img id="image5" src="./hidden treasure.jpg" height="102px" width="98px" alt="location" onclick="check(5)"></div>
-        <div class="location"> <img id="image6" src="./hidden treasure.jpg" height="102px" width="98px" alt="location" onclick="check(6)"> </div>
-        <div class="location"> <img id="image7" src="./hidden treasure.jpg" height="102px" width="98px" alt="location" onclick="check(7)"></div>
-        <div class="location"><img id="image8" src="./hidden treasure.jpg" height="102px" width="98px" alt="location" onclick="check(8)"> </div>
-        <div class="location"><img id="image9" src="./hidden treasure.jpg" height="102px" width="98px" alt="location" onclick="check(9)"> </div>
-
-        <div class="location"> <img id="image10" src="./hidden treasure.jpg" height="102px" width="98px" alt="location" onclick="check(10)"></div>
-        <div class="location"> <img id="image11" src="./hidden treasure.jpg" height="102px" width="98px" alt="location" onclick="check(11)"></div>
-        <div class="location"> <img id="image12" src="./hidden treasure.jpg" height="102px" width="98px" alt="location" onclick="check(12)"></div>
-        <div class="location"><img id="image13" src="./hidden treasure.jpg" height="102px" width="98px" alt="location" onclick="check(13)"> </div>
-        <div class="location"><img id="image14" src="./hidden treasure.jpg" height="102px" width="98px" alt="location" onclick="check(14)"> </div>
-        
-        div class="location"> <img id="image15" src="./hidden treasure.jpg" height="102px" width="98px" alt="location" onclick="check(15)"></div>
-        <div class="location"> <img id="image16" src="./hidden treasure.jpg" height="102px" width="98px" alt="location" onclick="check(16)"></div>
-        <div class="location"> <img id="image17" src="./hidden treasure.jpg" height="102px" width="98px" alt="location" onclick="check(17)"></div>
-        <div class="location"> <img id="image18" src="./hidden treasure.jpg" height="102px" width="98px" alt="location" onclick="check(18)"></div>
-        <div class="location"> <img id="image19" src="./hidden treasure.jpg" height="102px" width="98px" alt="location" onclick="check(19)"></div>
-
-        <div class="location"><img id="image20" src="./hidden treasure.jpg" height="102px" width="98px" alt="location" onclick="check(20)"> </div>
-        <div class="location"><img id="image21" src="./hidden treasure.jpg" height="102px" width="98px" alt="location" onclick="check(21)"> </div>
-        <div class="location"> <img id="image22" src="./hidden treasure.jpg" height="102px" width="98px" alt="location" onclick="check(22)"></div>
-        <div class="location"> <img id="image23" src="./hidden treasure.jpg" height="102px" width="98px" alt="location" onclick="check(23)"></div>
-        <div class="location"> <img id="image24" src="./hidden treasure.jpg" height="100px" width="98px" alt="location" onclick="check(24)"></div>
-
-       
-        
-        <p id="locations">Locations: 0</p>
-        <p id="penalty">Penalty: 0</p>
-        <p id="help">Click for help</p>
-
-
-
-    </div>
+   
     <script>
-        // Step 4
-        const ids = [];
+         const ids = [];
         for (let i = 0; i < 25; i++) {
             ids.push(`image${i}`);
         }
 
-        // Step 5
         let checkCount = 0;
-
-        // Step 6
         let penalty = 0;
-
-        // Step 7
         let lastCheck = 0;
-
-        // Step 8
         const treasureLocation = 5;
-
-        // Step 9
         const trapLocation = 18;
 
-        // Step 10
+        
         let gameOver = false;
 
-        // Step 11
+       
         function check(position) {
-            if (gameOver) return; // Step 11a
+            if (gameOver) return; 
 
-            const id = ids[position]; // Step 11b
-            const imageElement = document.getElementById(id); // Step 11c
+            const id = ids[position]; 
+            const imageElement = document.getElementById(id); 
 
             if (position === treasureLocation) {
-                imageElement.src = "treasure.jpg"; // Step 11d
-                gameOver = true; // Step 11h
-                penalty -= 3; // Step 11h
+                imageElement.src = "./treasure.jpg"; 
+                gameOver = true; 
+                penalty -= 3; 
             } else if (position === trapLocation) {
-                imageElement.src = "trap.jpg"; // Step 11e
-                gameOver = true; // Step 11h
-                penalty += 4; // Step 11h
+                imageElement.src = "Trap.jpg"; 
+                gameOver = true; 
+                penalty += 4; 
             } else {
-                imageElement.src = "pirate.jpg"; // Step 11d
-                penalty += 1; // Step 11e
+                imageElement.src = "No Treasure.png"; 
+                penalty += 1; 
             }
 
-            checkCount++; // Step 11e
-            const locationsElement = document.getElementById("locations"); // Step 11f
+            checkCount++; 
+            const locationsElement = document.getElementById("locations"); 
             locationsElement.textContent = `Locations: ${checkCount}`;
 
-            const penaltyElement = document.getElementById("penalty"); // Step 11g
+            const penaltyElement = document.getElementById("penalty"); 
             penaltyElement.textContent = `Penalty: ${penalty}`;
 
-            lastCheck = position; // Step 11k
+            lastCheck = position; 
         }
 
-        // Step 12
+        
         function help() {
             if (gameOver) return;
 
@@ -184,29 +153,93 @@
             const colDiff = Math.abs(lastPos.col - treasurePos.col);
 
             if (rowDiff <= 1 && colDiff <= 1) {
-                // Step 12b
+                
                 penalty += 2;
                 const penaltyElement = document.getElementById("penalty");
                 penaltyElement.textContent = `Penalty: ${penalty}`;
                 document.getElementById("help").textContent = "Can smell it";
             } else if (rowDiff + colDiff === 2) {
-                // Step 12c
+                
                 penalty += 2;
                 const penaltyElement = document.getElementById("penalty");
                 penaltyElement.textContent = `Penalty: ${penalty}`;
                 document.getElementById("help").textContent = "Close Matie";
             } else {
-                // Step 12d
+               
                 document.getElementById("help").textContent = "Step Faster";
             }
         }
 
-        // Step 13
-        document.getElementById("help").onclick = help;
-
-        // Step 14
-        // Test it out
+        
+        document.getElementById("help").onclick = help;       
     </script>
+
+<body>
+    <h1>Find the Treasure by Sravya
+
+    </h1>
+    
+    <div id="instructions">
+        <p>Click on the locations to search for treasure, beware the traps.</p>
+    </div>
+    <div id="locations">Number of locations checked is zero.</div>
+    <div id="penalty">Penalty is zero.</div>
+    <div id="help">
+        <p>Click for help.</p>
+        
+    </div>
+    <div id="helpReport">
+        <p>helpReport</p>
+    </div>
+    <div class="container">
+    <div class="grid" text-align="center">
+        <div class="row">
+        <div class="col">
+             <img id="image0" src="./hidden treasure.jpg" height="67" width="75" alt="location" onclick="check(0)"> </div>
+        
+        <div class="col"> 
+            <img id="image1" src="./hidden treasure.jpg" height="67" width="75" alt="location" onclick="check(1)"></div>
+        <div class="col"><img id="image2" src="./hidden treasure.jpg" height="67" width="75" alt="location" onclick="check(2)"></div>
+        <div class="col"><img id="image3" src="./hidden treasure.jpg" height="67" width="75" alt="location" onclick="check(3)"></div>
+        <div class="col"><img id="image4" src="./hidden treasure.jpg" height="67" width="75" alt="location" onclick="check(4)"></div>
+        </div>
+
+  
+
+
+
+        <div class="row"> <div class="col">
+            <img id="image5" src="./hidden treasure.jpg" height="67" width="75" alt="location" onclick="check(5)"></div>
+        <div class="col"> <img id="image6" src="./hidden treasure.jpg" height="67" width="75" alt="location" onclick="check(6)"> </div>
+        <div class="col"> <img id="image7" src="./hidden treasure.jpg" height="67" width="75" alt="location" onclick="check(7)"></div>
+        <div class="col"><img id="image8" src="./hidden treasure.jpg" height="67" width="75" alt="location" onclick="check(8)"> </div>
+        <div class="col"><img id="image9" src="./hidden treasure.jpg" height="67" width="75" alt="location" onclick="check(9)"> </div>
+        </div>
+
+      <div class="row"> <div class="col">
+            <img id="image10" src="./hidden treasure.jpg" height="67" width="75" alt="location" onclick="check(10)"></div>
+        <div class="col"> <img id="image11" src="./hidden treasure.jpg" height="67" width="75" alt="location" onclick="check(11)"></div>
+        <div class="col"> <img id="image12" src="./hidden treasure.jpg" height="67" width="75" alt="location" onclick="check(12)"></div>
+        <div class="col"><img id="image13" src="./hidden treasure.jpg" height="67" width="75" alt="location" onclick="check(13)"> </div>
+        <div class="col"><img id="image14" src="./hidden treasure.jpg" height="67" width="75" alt="location" onclick="check(14)"> </div>
+        </div>
+        <div class="row">
+        <div class="col"> <img id="image15" src="./hidden treasure.jpg" height="67" width="75" alt="location" onclick="check(15)"></div>
+        <div class="col"> <img id="image16" src="./hidden treasure.jpg" height="67" width="75" alt="location" onclick="check(16)"></div>
+        <div class="col"> <img id="image17" src="./hidden treasure.jpg" height="67" width="75" alt="location" onclick="check(17)"></div>
+        <div class="col"> <img id="image18" src="./hidden treasure.jpg" height="67" width="75" alt="location" onclick="check(18)"></div>
+        <div class="col"> <img id="image19" src="./hidden treasure.jpg" height="67" width="75" alt="location" onclick="check(19)"></div>
+</div>
+
+        <div class="row">
+            <div class="col"> <img id="image20" src="./hidden treasure.jpg" height="67" width="75" alt="location" onclick="check(20)"> </div>
+        <div class="col"><img id="image21" src="./hidden treasure.jpg" height="67" width="75" alt="location" onclick="check(21)"> </div>
+        <div class="col"> <img id="image22" src="./hidden treasure.jpg" height="67" width="75" alt="location" onclick="check(22)"></div>
+        <div class="col"> <img id="image23" src="./hidden treasure.jpg" height="67" width="75" alt="location" onclick="check(23)"></div>
+        <div class="col"> <img id="image24" src="./hidden treasure.jpg" height="67" width="75" alt="location" onclick="check(24)"></div>
+
+    </div>
+    </div>
 
 </body>
 </html>
