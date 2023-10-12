@@ -15,51 +15,68 @@
 
   <h1>Speed Check by Sravya</h1>
 
-  <button type="button" id="StartTimer"> Start Timer
-  </button>
-  <button type="button" id="reactButton"> React
-</button>
-  
-  <div id="target"> Your time </div>
-  <div id="counter"> Count: </div>
+  <style>
+    .btnclr {
+      color: cornflowerblue;
+      font-family: 'Narrow Bold';
+      box-shadow: 0 12px 23px 0 rgba(0,0,0,0.2), 0 18px 28px 0 rgba(0,0,0,0.19);
+    }
+    body {
+      margin-left: 20px;
+    }
+    h1 {
+        text-shadow: powderblue;
+        text-decoration: italic;
+    }
+    body {
+      text-align: center;
+      background-color:aquamarine;
+    }
+  </style>
+</head>
+
+    <div id="target">Your Time</div> 
+    <div id="counter">Count</div>
+
+  <input id ="startButton" class="btnclr" type="button" value="StartTimer">
+  <input id="reactButton" class="btnclr" type ="button" value="React">
   
   <script> 
- var reactTime = undefined;
+  reactTime = undefined;
 
-  function recordTime() {
+function recordTime() 
+{
     reactTime = Date.now();
-    console.log("React button pressed at:",reactTime);
+    console.log("React time recorded:", reactTime);
 }
-
-
+var x=Math.floor(Math.random()*(11-2)+2);
+var y=x*1000;
 document.getElementById("reactButton").onclick = recordTime;
-
-  function StartTimer() {
+function startTime() {
+  
     for (var i = 0; i < 9; i++) {
      
-     setTimeout(function (count) {
-         return function () {
-             document.getElementById("counter").innerHTML = count;
-         };
-     }(i), (8 - i) * 1000);
- }
-  }
+        setTimeout(function (count) {
+            return function () {
+                document.getElementById("counter").innerHTML = count;
+            };
+        }(i), (8 - i) * 1000);
+    }
 
-  setTimeout(function () {
+    setTimeout(function () {
       
-      if (typeof reactTime === "undefined") {
-      
-          document.getElementById("target").innerHTML = "Too Slow";
-      } else {
-          var endTime = Date.now();
-          var elapsedTime = endTime - reactTime;
+        if (typeof reactTime === "undefined") {
+        
+            document.getElementById("target").innerHTML = "Too Slow";
+        } else {
+            var endTime = Date.now();
+            var elapsedTime = endTime - reactTime;
 
-          document.getElementById("target").innerHTML = "Timer count " + elapsedTime + "ms";
-      }
-  }, 8000);
-
-  document.getElementById("StartTimer").onclick = startTime;
- 
+            document.getElementById("target").innerHTML = "Time was " + elapsedTime + "ms";
+        }
+    }, 8000);
+}
+document.getElementById("startButton").onclick = startTime;
   </script>
 
 </body>

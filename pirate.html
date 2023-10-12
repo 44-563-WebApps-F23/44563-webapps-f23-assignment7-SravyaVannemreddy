@@ -94,19 +94,20 @@
 
    
     <script>
+
          const ids = [];
         for (let i = 0; i < 25; i++) {
             ids.push(`image${i}`);
         }
 
-        let checkCount = 0;
-        let penalty = 0;
-        let lastCheck = 0;
+        checkCount = 0;
+         penalty = 0;
+         lastCheck = 0;
         const treasureLocation = 5;
         const trapLocation = 18;
 
         
-        let gameOver = false;
+         gameOver = false;
 
        
         function check(position) {
@@ -156,7 +157,7 @@
                 
                 penalty += 2;
                 const penaltyElement = document.getElementById("penalty");
-                penaltyElement.textContent = `Penalty: ${penalty}`;
+                penaltyElement.textContent = "Penalty:  " + penalty ;
                 document.getElementById("help").textContent = "Can smell it";
             } else if (rowDiff + colDiff === 2) {
                 
@@ -171,8 +172,16 @@
         }
 
         
-        document.getElementById("help").onclick = help;       
+        document.getElementById("help").onclick = help();       
+
+        //var treasureLocation= Math.floor(Math.random()*(25-0)-0);
+        //var trapLocation=Math.floor(Math.random()*(25-0)-0);
+
+        function refresh(){
+        window.location.reload("Refresh")
+    }
     </script>
+   
 
 <body>
     <h1>Find the Treasure by Sravya
@@ -185,11 +194,11 @@
     <div id="locations">Number of locations checked is zero.</div>
     <div id="penalty">Penalty is zero.</div>
     <div id="help">
-        <p>Click for help.</p>
+        <p onclick="help()">Click for help.</p>
         
     </div>
     <div id="helpReport">
-        <p>helpReport</p>
+        <p >helpReport</p>
     </div>
     <div class="container">
     <div class="grid" text-align="center">
@@ -204,11 +213,7 @@
         <div class="col"><img id="image4" src="./hidden treasure.jpg" height="67" width="75" alt="location" onclick="check(4)"></div>
         </div>
 
-  
-
-
-
-        <div class="row"> <div class="col">
+          <div class="row"> <div class="col">
             <img id="image5" src="./hidden treasure.jpg" height="67" width="75" alt="location" onclick="check(5)"></div>
         <div class="col"> <img id="image6" src="./hidden treasure.jpg" height="67" width="75" alt="location" onclick="check(6)"> </div>
         <div class="col"> <img id="image7" src="./hidden treasure.jpg" height="67" width="75" alt="location" onclick="check(7)"></div>
@@ -240,6 +245,9 @@
 
     </div>
     </div>
+    <button class="btn btn-primary" onclick="refresh(this)">New Game</button>
+
+
 
 </body>
 </html>
