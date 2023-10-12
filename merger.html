@@ -78,7 +78,7 @@
 <body>
 	<h1>Sravya Vannemreddy builds a merger</h1>
 
-	<input type="text" id="textInput" class="border border border-dark" placeholder=" Enter text..."> <br> <br>
+	<input type="text" id="textInput" class="border border border-dark" placeholder=" Enter text"> <br> <br>
 	<div class="flex-container" id="target">
 	  <div class="merger">row item 1</div>   
 	  <div class="merger">row item 2</div>  
@@ -94,21 +94,24 @@
 
 </body>
 <script>
+
 	document.getElementById("addEndButton").addEventListener("click", function () {
 	var inputValue = document.getElementById("textInput").value;
-    var newDiv = document.createElement("div");
-    newDiv.innerHTML = inputValue;
-    newDiv.className = "merger";
-    ocument.querySelector(".flex-container").appendChild(newDiv);
+	var newDiv = document.createElement("div");
+	newDiv.innerHTML = inputValue;
+	newDiv.className = "merger";
+	document.querySelector(".flex-container").appendChild(newDiv);
 });
+
 document.getElementById("removeButton").addEventListener("click", function () {
-		var mergerItems = document.getElementsByClassName("merger");
+			var mergerItems = document.getElementsByClassName("merger");
 		var length = mergerItems.length;
 		if (length > 0) {
 			var middleIndex = Math.floor(length / 2);
 			mergerItems[middleIndex].remove();
 		}
 	});
+
 	document.getElementById("addFrontButton").addEventListener("click", function () {
 		var inputValue = document.getElementById("textInput").value;
 		var newDiv = document.createElement("div");
@@ -117,31 +120,5 @@ document.getElementById("removeButton").addEventListener("click", function () {
 		var container = document.querySelector(".flex-container");
 		container.insertBefore(newDiv, container.firstChild);
 	});
-
-    function swap(){
-
-let mergerItems = document.getElementsByClassName("merger");
-
-let container = document.getElementById("target");
-
-let element1 = Math.floor(Math.random()*mergerItems.length);
-
-let element2 = Math.floor(Math.random()*mergerItems.length);
-
-let firstInnerText = document.getElementsByClassName("merger")[element1];
-
-let secondInnerText = document.getElementsByClassName("merger")[element2];
-
-if (mergerItems.length > 1) {
-
-    let temp = firstInnerText.innerHTML;
-
-    firstInnerText.innerHTML = secondInnerText.innerHTML;
-
-    secondInnerText.innerHTML = temp;
-
-}
-
-}
 </script>
 </html>	
